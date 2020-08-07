@@ -35,6 +35,9 @@ func SetDefaults_KubeControllerManagerConfiguration(obj *kubectrlmgrconfigv1alph
 	if obj.AttachDetachController.ReconcilerSyncLoopPeriod == zero {
 		obj.AttachDetachController.ReconcilerSyncLoopPeriod = metav1.Duration{Duration: 60 * time.Second}
 	}
+	if obj.AttachDetachController.ReconcilerMaxWaitForUnmountDuration == zero {
+		obj.AttachDetachController.ReconcilerMaxWaitForUnmountDuration = metav1.Duration{Duration: 6 * time.Minute}
+	}
 	if obj.DeprecatedController.RegisterRetryCount == 0 {
 		obj.DeprecatedController.RegisterRetryCount = 10
 	}
